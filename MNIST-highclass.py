@@ -62,7 +62,7 @@ y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 
 
 #Cross_Entropy
-corss_entropy = tf.reduce_mean(-tf.reduce_sum(y_*tf.log(y_conv),reduction_indices=[1]))
+corss_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
 
 #Trianing & result
 train_step = tf.train.GradientDescentOptimizer(1e-4).minimize(corss_entropy)
